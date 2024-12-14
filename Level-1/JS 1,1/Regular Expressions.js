@@ -5,20 +5,25 @@ function Validator () {
     }
 
     this.validatePhone = (phone) => {
-        let regexp =  /^((\+\d\d|([- ]{*}|))+([ -]|))(\(|[ -])([0-9][ -]?[0-9][ -]?[0-9][ -]?)/
-        return phone.match(regexp);
+        let regexp = /^[ -]*(\+[ -]*[0-9][ -]*[0-9][ -]*)?[ -]*\(?([ -]*?[0-9][ -]*?[0-9][ -]*?[0-9][ -]*?)\)?([ -]*?[0-9][ -]*?[0-9][ -]*?[0-9][ -]*?[0-9][ -]*?[0-9][ -]*?[0-9][ -]*?[0-9])$/;
+        return regexp.test(phone);
+    }
+
+    this.validatePassword = (password) => {
+        let regexp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d_]{8,}$/
+        return regexp.test(password);
     }
 }
 
-// console.log(new Validator().validateEmail("fi@secondpart.end")) // Валідні
-// console.log(new Validator().validateEmail("first-part@.se=cond%p.art.end")) // Валідні
-// console.log(new Validator().validateEmail("first.part@se=cond%part.r")) // Валідні
-// console.log(new Validator().validateEmail("f@secondart.end,")) // Не валідні
-// console.log(new Validator().validateEmail("first-part@.se=cond@part.end")) // Не валідні
-// console.log(new Validator().validateEmail("-firstpart@.se=cond%.enddeded")) // Не валідні
-// console.log(new Validator().validateEmail("firs_tpart@.se.en")) // Не валідні
-// console.log(new Validator().validateEmail("")) // Не валідні
-// console.log(new Validator().validateEmail("firstpart@.se.enddeded")) // Не валідні
+console.log(new Validator().validateEmail("fi@secondpart.end")) // Валідні
+console.log(new Validator().validateEmail("first-part@.se=cond%p.art.end")) // Валідні
+console.log(new Validator().validateEmail("first.part@se=cond%part.r")) // Валідні
+console.log(new Validator().validateEmail("f@secondart.end,")) // Не валідні
+console.log(new Validator().validateEmail("first-part@.se=cond@part.end")) // Не валідні
+console.log(new Validator().validateEmail("-firstpart@.se=cond%.enddeded")) // Не валідні
+console.log(new Validator().validateEmail("firs_tpart@.se.en")) // Не валідні
+console.log(new Validator().validateEmail("")) // Не валідні
+console.log(new Validator().validateEmail("firstpart@.se.enddeded")) // Не валідні
 
 console.log(new Validator().validatePhone("+38 (099) 567 8901")) // Валідні
 console.log(new Validator().validatePhone("+38 099 5 6 7 8 9  01")) // Валідні
@@ -28,3 +33,9 @@ console.log(new Validator().validatePhone("+38 (099) 567 8901 0")) // Не Ва�
 console.log(new Validator().validatePhone("+38 099 a0000000")) // Не Валідні
 console.log(new Validator().validatePhone("+38 (0989) 567 8901")) // Не Валідні
 console.log(new Validator().validatePhone("+48 (0989) 567 8901"))// Не Валідні
+
+console.log(new Validator().validatePassword("C00l_Pass")) // Валідні
+console.log(new Validator().validatePassword("SupperPas1")) // Валідні
+console.log(new Validator().validatePassword("Cool_pass")) // Не Валідні
+console.log(new Validator().validatePassword("C00l"))// Не Валідні
+

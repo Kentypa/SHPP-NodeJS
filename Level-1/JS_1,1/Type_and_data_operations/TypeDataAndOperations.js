@@ -1,6 +1,6 @@
 let idCounter = 0;
 
-function Product(name, description, price, brand, activeSize, quantity, reviews = [], images = []) {
+export function Product(name, description, price, brand, activeSize, quantity, reviews = [], images = []) {
     this.ID = `${idCounter++}`;
     this.name = name;
     this.description = description;
@@ -12,6 +12,27 @@ function Product(name, description, price, brand, activeSize, quantity, reviews 
     this.date = new Date();
     this.reviews = reviews;
     this.images = images;
+
+    this.getID = () => {return this.ID;}
+    this.getName = () => {return this.name;}
+    this.getDescription = () => {return this.description;}
+    this.getPrice = () => {return this.price;}
+    this.getBrand = () => {return this.brand;}
+    this.getActiveSize = () => {return this.activeSize;}
+    this.getQuantity = () => {return this.quantity;}
+    this.getDate = () => {return this.date;}
+    this.getReviews = () => {return this.reviews;}
+    this.getImages = () => {return this.images;}
+
+    this.setName = (name) => {this.name = name;}
+    this.setDescription = (description) => {this.description = description;}
+    this.setPrice = (price) => {this.price = price;}
+    this.setBrand = (brand) => {this.brand = brand;}
+    this.setActiveSize = (activeSize) => {this.activeSize = activeSize;}
+    this.setQuantity = (quantity) => {this.quantity = quantity;}
+    this.setDate = (date) => {this.date = date;}
+    this.setReviews = () => {this.reviews = reviews;}
+    this.setImages = () => {this.images = images;}
 
     this.getReviewByID = (reviewID) => {
         return this.reviews.find(review => review.ID === reviewID);
@@ -37,20 +58,20 @@ function Product(name, description, price, brand, activeSize, quantity, reviews 
         this.reviews = this.reviews.filter(review => review.ID !== reviewID);
     }
 
-    this.getAvarageRating = () => {
+    this.getAverageRating = () => {
         return getAverage(reviews.map((review) => {
             return (review.rating.price + review.rating.quality + review.rating.service + review.rating.value) / 4;
         }));
     }
 }
 
-function searchProduct(products = [], search) {
+export function searchProduct(products = [], search) {
     return products.filter(product => {
         return product.name.includes(search) || product.description.includes(search);
     });
 }
 
-function sortProducts(products = [], sortRule) {
+export function sortProducts(products = [], sortRule) {
     return products.sort((a, b) => {
         if (sortRule === "price") {
             return a.price - b.price;
@@ -63,10 +84,10 @@ function sortProducts(products = [], sortRule) {
         }});
 }
 
-const getAverage = (array) =>
+export const getAverage = (array) =>
     array.reduce((sum, currentValue) => sum + currentValue, 0) / array.length;
 
-function Review(ID, author, date, comment, rating) {
+export function Review(ID, author, date, comment, rating) {
     this.ID = ID;
     this.author = author;
     this.date = date;
@@ -74,41 +95,9 @@ function Review(ID, author, date, comment, rating) {
     this.rating = rating;
 }
 
-function Rating(service, price, value, quality) {
+export function Rating(service, price, value, quality) {
     this.service = service;
     this.price = price;
     this.value = value;
     this.quality = quality;
 }
-
-let apple = new Product(
-    "MacM4",
-    "Ultra powered PC",
-    1240.99,
-    "Apple",
-    'M',
-    5,
-    [
-        new Review('1', 'kent', new Date(), 'something', new Rating(5, 3, 4 ,5)),
-        new Review('2', 'kentik', new Date(), 'something2', new Rating(3, 5, 5 ,3))
-    ],
-    ["img1.jpg", "img2.png"]
-);
-
-let apple2 = new Product(
-    "MacM3",
-    "Less Ultra powered PC",
-    1000.99,
-    "Apple",
-    'M',
-    4,
-    [
-        new Review('1', 'kent', new Date(), 'something', new Rating(5, 3, 4 ,5)),
-        new Review('2', 'kentik', new Date(), 'something2', new Rating(3, 5, 5 ,3))
-    ],
-    ["img1.jpg", "img2.png"]
-);
-
-console.log(apple.getAvarageRating());
-console.log(searchProduct([apple], "PC"));
-console.log(sortProducts([apple, apple2], "price"));

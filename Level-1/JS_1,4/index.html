@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="task.js"></script>
+</head>
+<body>
+<div id="container">
+    <!-- Tasks from 1 to 3    -->
+    <div class="tasks-container">
+        <div id="task1" class="task1"></div>
+        <div class="task1"></div>
+        <div class="task1"></div>
+        <div class="task1"></div>
+        <div class="task1"></div>
+        <button onclick="task1method1('task1')">Task 1 Method 1</button>
+        <button onclick="task1method2('task1')">Task 1 Method 2</button>
+        <button onclick="task1method3('task1')">Task 1 Method 3</button>
+        <button onclick="task2('task1')">Task 2</button>
+        <button onclick="task3('task1')">Task 3</button>
+    </div>
+    <!-- Task 4    -->
+    <div class="tasks-container">
+        <label for="querySelector">CSS Query Selector:</label>
+        <input type="text" id="querySelector" name="querySelector" required minlength="1" maxlength="124" size="12" />
+        <button onclick="task4('querySelector')">Task 4 Method 1</button>
+    </div>
+    <!-- Task 5    -->
+    <div class="tasks-container">
+        <div id="task5" class="task5"></div>
+    </div>
+    <!-- Task 6    -->
+    <div class="container">
+        <div id="task6" class="task6 hidden"></div>
+        <button id="task6button">Task 6 button</button>
+    </div>
+    <!-- Task 7    -->
+    <div class="container">
+        <div id="task7box" class="task7box hidden"></div>
+        <label for="task7">Task 7 input:</label>
+        <input type="text" id="task7" name="task7" required minlength="1" maxlength="124" size="12" />
+    </div>
+    <!-- Task 8    -->
+    <div class="container">
+        <label for="task8input">Task 8 input:</label>
+        <input type="text" id="task8input" name="task8" required minlength="1" maxlength="124" size="12" />
+        <button id="task8button">Task 8 button</button>
+        <img id="task8image" src="" alt="" />
+    </div>
+    <!-- Task 9    -->
+    <div class="container">
+        <label for="task9">Task 9:</label>
+        <textarea id="task9" name="task9" rows="5" cols="33"></textarea>
+        <button id="task9button">Task 9 button</button>
+        <div id="task9elementsContainer"></div>
+    </div>
+</div>
+</body>
+</html>

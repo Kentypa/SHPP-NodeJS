@@ -1,0 +1,47 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.task1 {
+    background-color: #000000;
+    width: 100px;
+    height: 100px;
+}
+
+.hidden {
+    display: none;
+}
+
+.tasks-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task5 {
+    background-color: yellow;
+    width: 50px;
+    height: 50px;
+}
+
+.task6 {
+    background-color: red;
+    width: 50px;
+    height: 50px;
+}
+
+.task7box {
+    background-color: green;
+    width: 50px;
+    height: 20px;
+}

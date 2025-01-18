@@ -1,0 +1,23 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 200%;
+}
+
+.container {
+    display: flex;
+    box-sizing: border-box;
+    margin: 0;
+}
+.hidden {
+    display: none;
+}
+
+.allPage {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttonUP {
+    position: fixed;
+}

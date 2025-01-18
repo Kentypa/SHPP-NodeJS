@@ -1,0 +1,23 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 200%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    position: fixed;
+}
+
+.square {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.7);
+    z-index: 1000;
+    display: none;
+}
